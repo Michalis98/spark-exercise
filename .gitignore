@@ -1,0 +1,9 @@
+/applications.csv
+/artifacts
+/csvtoparquet.py
+/generator.py
+/impors.py
+/loans.csv
+/requirements.txt
+/sources.csv
+/spark-warehouse
