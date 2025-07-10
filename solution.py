@@ -18,6 +18,7 @@ print(f"Attempting to read all Parquet files")
 try:
     applications_data = spark.read.parquet(applications_parquet_path)
     loans_data = spark.read.parquet(loans_parquet_path)
+    #casting commission column to double because I will do some calculations later
     loans_data = loans_data.withColumn("commission", col("commission").cast("double"))
     sources_data = spark.read.parquet(sources_parquet_path)
 except Exception as e:
@@ -74,6 +75,7 @@ finally:
 
     print(f"Exercise 1")
 
+    #app_id is distinct but doing it for safety
     spark.sql("SELECT count(distinct(app_id)) as Sumbitted_loans FROM all_applications_data").show()
 
 
