@@ -4,19 +4,12 @@ Analysis of applications, loans, and marketing sources
 Integrity and quality checks (e.g., duplicates, orphans, outliers)
 Visual insights using Matplotlib
 
-Project Structure
-├── applications_parquet/     # Parquet files for loan applications
-├── loans_parquet/            # Parquet files for loans
-├── sources_parquet/          # Parquet files for marketing sources
-├── solution.py               # Answers the 4 core Spark interview questions
-├── output/                   # Folder with exported charts and CSVs
-└── README                    # This file
-
 Setup Instructions to run locally
 
 1. Install Python & JDK
 2. Install Dependencies & change the parquet path in the code to your path
 pip install pyspark pandas matplotlib
+3. The solution it's in the solution.py file
 
 What it does:
 Counts total applications
