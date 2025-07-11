@@ -68,17 +68,12 @@ finally:
     FROM all_loans_data
     """).show()
 
-   
-
-
-    # Exercise 1 - How many applications have been submitted from the beginning of the time.
+       # Exercise 1 - How many applications have been submitted from the beginning of the time.
 
     print(f"Exercise 1")
 
     #app_id is distinct but doing it for safety
     spark.sql("SELECT count(distinct(app_id)) as Sumbitted_loans FROM all_applications_data").show()
-
-
 
     # Exercise 2 - How many applications have been submitted from the beginning of the time?
     # 2 approaches.
@@ -197,8 +192,8 @@ finally:
     spark.sql(query).show()
 
 
-#######################################################################################################################################
-###################################################EXTRA###############################################################################
+    #######################################################################################################################################
+    ###################################################EXTRA###############################################################################
 
 
     daily_profit = spark.sql("""
