@@ -22,3 +22,5 @@ Visualize basic information
 Note on Data Integrity (Exercise 2):
 While analyzing approved applications, I noticed that 1 loan is present in the loans table but has no matching approved application in the applications dataset.
 
+Also note on Exercise 3 : loan_type was not available so I used loan_name
+

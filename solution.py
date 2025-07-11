@@ -8,9 +8,9 @@ spark = SparkSession.builder \
     .appName("SparkExercise") \
     .getOrCreate()
 
-applications_parquet_path = r"C:\Users\michalis.a\Desktop\spark\spark-interview-2-\spark-interview\applications_parquet"
-loans_parquet_path = r"C:\Users\michalis.a\Desktop\spark\spark-interview-2-\spark-interview\loans_parquet"
-sources_parquet_path = r"C:\Users\michalis.a\Desktop\spark\spark-interview-2-\spark-interview\sources_parquet"
+applications_parquet_path = r"C:\Users\mihal\Desktop\Coding\spark-interview\spark-exercise\applications_parquet"
+loans_parquet_path = r"C:\Users\mihal\Desktop\Coding\spark-interview\spark-exercise\loans_parquet"
+sources_parquet_path = r"C:\Users\mihal\Desktop\Coding\spark-interview\spark-exercise\sources_parquet"
 
 
 print(f"Attempting to read all Parquet files")
@@ -114,11 +114,12 @@ finally:
 
     spark.sql("""
     SELECT 
-        CONCAT(ROUND(AVG(commission), 2), ' €') AS Average_commission
+    CONCAT(ROUND(AVG(CAST(commission AS double)), 2), ' £') AS Average_commission
     FROM applications_with_loans
     WHERE status = 'approved'
     """).show()
 
+    #The excel you have in the file is not the same with the parquet, it has ~0,10 more
 
     #Exercise 3 which marketing sources are the first and second most popular for each loan type ?
     print(f"Exercise 3")
@@ -139,6 +140,7 @@ finally:
 
     #Here I used row number in order to be able to rank the most popular loans grouping them by loan_name and source.
     #After the CTE I used rank=1,rank=2 to get the 2 most populars. If we need more we can expand the logic.
+    #loan type was not available so I used loan_name
     query = """
     WITH source_counts AS (
         SELECT
